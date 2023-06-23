@@ -1,0 +1,27 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homework 1</title>
+</head>
+    <body>
+    <span id = "display"></span>
+    <script>
+        
+        var number1 = window.prompt ("Please enter the first number: ")
+        alert("You entered " + number1 + " as the first number");
+
+        var number2 = window.prompt ("Please enter the second number: ");
+        alert("You entered " + number2 + " as the second number");
+15
+        number1 = parseInt(number1);
+        number2 = parseInt(number2);
+
+        var sum = number1 + number2;
+        alert("You entered " + number1 +" + " + number2 + " which equals " + sum);
+        document.getElementById('display').innerHTML = "You entered " + number1 +" + " + number2 + " which equals " + sum;
+        
+    </script>
+    </body>
+</html>
