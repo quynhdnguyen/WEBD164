@@ -1,0 +1,34 @@
+<html>
+<head>
+<script>
+
+function showComment(){ 
+  var commentInput = document.getElementById("comments");
+  var commentLength = commentInput.value.length;
+  var charactersLeft = 255 - commentLength;
+  
+  if (charactersLeft < 0) {
+    commentInput.value = commentInput.value.substring(0, 255); // Trim the comment to 255 characters
+    charactersLeft = 0;
+  }
+  
+  document.getElementById("numleft").innerText = charactersLeft;
+  
+}
+    
+</script>    
+    
+    
+</head>
+<body>
+
+<form action="" method="post">    
+<input type="text" name="fullname" id="fullname"  placeholder="fullname"><span class="err"></span><br>
+<div id ="showcomment" >You have <span id="numleft"></span> characters of your 255 left!</div>        
+<textarea id="comments" maxlength="255" onkeyup="showComment()"></textarea> 
+<input type="submit" name="submit" value="Enter"> 
+    </form>
+</body>    
+</html>    
+
+
