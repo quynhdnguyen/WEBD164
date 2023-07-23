@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<title>Validate me</title>
+
+<script>
+	function validateMe(){
+	for (var i = 0; i< document.forms[0].length; i++){
+		if(document.forms[0].elements[i].type == 'text'){
+			if(document.forms[0].elements[i].value == ''){
+				alert('You must fill out your ' + document.forms[0].elements[i].name);
+				document.forms[0].elements[i].focus();
+		return false;
+			}
+		}
+		else if (document.forms[0].elements[i].type === 'radio') {
+          var radioGroup = document.getElementsByName(document.forms[0].elements[i].name);
+          var radioGrp = false;
+
+          for (var j = 0; j < radioGroup.length; j++) {
+            if (radioGroup[j].checked) {
+              radioGrp = true;
+              break;
+            }
+          }
+
+          if (!radioGrp) {
+            alert('Please select your ' + document.forms[0].elements[i].name);
+            return false;
+          }
+        } else if (document.forms[0].elements[i].type === 'checkbox') {
+          var checkboxGroup = document.getElementsByName(document.forms[0].elements[i].name);
+          var checkboxGrp = false;
+
+          for (var k = 0; k < checkboxGroup.length; k++) {
+            if (checkboxGroup[k].checked) {
+              checkboxGrp = true;
+              break;
+            }
+          }
+
+          if (!checkboxGrp) {
+            alert('Please select at least one option for ' + document.forms[0].elements[i].name);
+            return false;
+          }
+        }
+		else if (document.forms[0].elements[i].type === 'select-one') {
+          if (document.forms[0].elements[i].value === '') {
+            alert('You must choose an option for ' + document.forms[0].elements[i].name);
+            document.forms[0].elements[i].focus();
+            return false;
+          }
+        } else if (document.forms[0].elements[i].type === 'textarea') {
+          var commentValue = document.forms[0].elements[i].value;
+          if (commentValue === '') {
+            alert('You must enter comments');
+            document.forms[0].elements[i].focus();
+            return false;
+          }
+        }
+      }
+      return true;
+    }
+	
+</script>
+</head>
+<body>
+At least one piece of data has to come in from every input type.
+<form method="get" onsubmit="return validateMe();">
+    <label for="fullname">Name</label>
+    <input id="fullname" name="full name" type="text" placeholder="Enter Full Name" /><br>
+Year in School:<br>
+	First<input type="radio" name="year" value="first">
+	Second<input type="radio" name="year" value="second">
+	Third<input type="radio" name="year" value="third"><br>
+Hobbies<br>
+	Baseball <input type="checkbox" name="hobbies" value="baseball">  
+	Football <input type="checkbox" name="hobbies" value="football">  
+	Hockey <input type="checkbox" name="hobbies" value="hockey"><br>
+Favorite Show 
+<select name="show">
+	<option value="">Choose Below</option>
+	<option value="ATHF">Aqua Teen Hunger Force</option>
+	<option value="Family Guy">Family Guy</option>
+	<option value="Simpsons">Simpsons</option>
+</select><br>
+Comments<br>
+	<textarea cols="50" rows="6" name="comments">Enter Comments</textarea><br>
+	<input type="submit" name="submit" value="enter me">
+</form>
+
+</body>
+</html>
