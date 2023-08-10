@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<!-- Name: Quynh Nguyen 
+ Project description: simple mobile login for owner who wants to access to their page-->
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/purecss@3.0.0/build/pure-min.css" 
+    integrity="sha384-X38yfunGUhNzHpBaEBsWLO+A0HDYOQi8ufWDkZ0k9e0eXz/tH3II7uKZ9msv++Ls" crossorigin="anonymous">
+    <link rel="stylesheet" href="jsjqfinal.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <title>Mobile Login</title>
+</head>
+
+<body>
+    <div class="login-container">
+        <h1>Welcome back!</h1>
+        <span id="welcomeMsg"></span>
+        <form class="pure-form" id="loginForm">
+            <fieldset>
+                <input type="email" id="email" placeholder="Email" />
+                <input type="password" id="password" placeholder="Password" />
+                <label for="default-remember">
+                    <input type="checkbox" id="default-remember" /> Remember me
+                </label>
+                <button type="submit" class="pure-button pure-button-primary">Sign in</button>
+            </fieldset>
+        </form>
+    </div>
+
+    <script>
+        $(document).ready(function() {
+            $("#loginForm").submit(function(event) {
+                event.preventDefault();
+
+                // Get user input values
+                const enteredEmail = $("#email").val();
+                const enteredPassword = $("#password").val();
+
+                // Compare with predefined values
+                const email = 'quynhdn@yahoo.com';
+                const password = 'test';
+
+                if (enteredEmail === email && enteredPassword === password) {
+                    sessionStorage.setItem('auth', 'yes');
+                    // Display successful login message with a link
+                    $("#welcomeMsg").html('Welcome, please click <a href="account.html">here</a> to access your account');
+                } else {
+                    // Display an error message for failed attempt
+                    $("#welcomeMsg").html('Please try again!');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

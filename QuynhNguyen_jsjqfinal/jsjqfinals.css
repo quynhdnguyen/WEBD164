@@ -1,0 +1,35 @@
+/* Custom CSS styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #FEBBCC;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.login-container {
+    background-color: #ffffff;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+h1 {
+    margin-bottom: 20px;
+    color: #333;
+}
+
+#welcomeMsg {
+    font-size: 18px;
+    margin-bottom: 20px;
+    display: block;
+}
+
+/* Additional custom styling for the welcome message */
+.welcome-style {
+    color: #007bff;
+    font-size: 24px;
+}

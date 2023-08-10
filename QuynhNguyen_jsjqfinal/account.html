@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<!-- Name: Quynh Nguyen 
+ Project description: simple mobile login for owner who wants to access to their page-->
+
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/purecss@3.0.0/build/pure-min.css" 
+    integrity="sha384-X38yfunGUhNzHpBaEBsWLO+A0HDYOQi8ufWDkZ0k9e0eXz/tH3II7uKZ9msv++Ls" crossorigin="anonymous">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="jsjqfinals.css"> 
+    <title>Mobile Login</title>
+</head>
+<body>
+    <div class="login-container">
+        <h1>Welcome to Your Private Account</h1>
+        <p id="welcomeMsg"></p>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            const creds = sessionStorage.getItem('auth');
+            
+            if (creds === 'yes') {
+                // Use jQuery to add a welcome message and additional styling
+                $("#welcomeMsg").html('<strong>Welcome!</strong> You are now in your private account.');
+                $("#welcomeMsg").addClass("welcome-style");
+            } else {
+                // Redirect to index.html if not authenticated
+                window.location = 'index.html';
+            }
+        });
+    </script>
+</body>
+</html>
